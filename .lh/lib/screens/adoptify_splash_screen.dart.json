@@ -1,0 +1,26 @@
+{
+    "sourceFile": "lib/screens/adoptify_splash_screen.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1746445920855,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1746445939304,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n \r\n   if (isUserRegistered) {\r\n     Get.off(() => const HomeScreen());\r\n   } else {\r\n-    Get.off(() => const UserFormScreen());\r\n+    Get.off(() => const UserInfoFormScreen());\r\n   }\r\n });\r\n \r\n     return Scaffold(\r\n"
+                },
+                {
+                    "date": 1746445944689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,18 +10,18 @@\n   const AdoptifySplashscreen({super.key});\r\n \r\n   @override\r\n   Widget build(BuildContext context) {\r\n-  Future.delayed(const Duration(seconds: 3), () async {\r\n-  final prefs = await SharedPreferences.getInstance();\r\n-  bool isUserRegistered = prefs.getBool(\"isRegistered\") ?? false;\r\n+    Future.delayed(const Duration(seconds: 3), () async {\r\n+      final prefs = await SharedPreferences.getInstance();\r\n+      bool isUserRegistered = prefs.getBool(\"isRegistered\") ?? false;\r\n \r\n-  if (isUserRegistered) {\r\n-    Get.off(() => const HomeScreen());\r\n-  } else {\r\n-    Get.off(() => const UserInfoFormScreen());\r\n-  }\r\n-});\r\n+      if (isUserRegistered) {\r\n+        Get.off(() => const HomeScreen());\r\n+      } else {\r\n+        Get.off(() => const UserInfoFormScreen());\r\n+      }\r\n+    });\r\n \r\n     return Scaffold(\r\n       backgroundColor: adoptifyPrimaryColor,\r\n       body: Center(\r\n"
+                }
+            ],
+            "date": 1746445920855,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\r\nimport 'package:get/get.dart';\r\nimport 'package:nb_utils/nb_utils.dart';\r\nimport 'package:templering/screens/home.dart';\r\nimport 'package:templering/utils/adoptify_loader.dart';\r\nimport '../utils/color.dart';\r\n\r\nclass AdoptifySplashscreen extends StatelessWidget {\r\n  const AdoptifySplashscreen({super.key});\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n  Future.delayed(const Duration(seconds: 3), () async {\r\n  final prefs = await SharedPreferences.getInstance();\r\n  bool isUserRegistered = prefs.getBool(\"isRegistered\") ?? false;\r\n\r\n  if (isUserRegistered) {\r\n    Get.off(() => const HomeScreen());\r\n  } else {\r\n    Get.off(() => const UserFormScreen());\r\n  }\r\n});\r\n\r\n    return Scaffold(\r\n      backgroundColor: adoptifyPrimaryColor,\r\n      body: Center(\r\n        child: Column(\r\n          mainAxisAlignment: MainAxisAlignment.center,\r\n          children: [\r\n            200.height,\r\n            Image.asset(\r\n              \"images/app/bell.png\",\r\n              height: MediaQuery.of(context).size.height * 0.2,\r\n            ),\r\n            30.height,\r\n            const Text(\r\n              'Temple Ring',\r\n              style: TextStyle(\r\n                color: Colors.white,\r\n                fontSize: 35,\r\n                fontWeight: FontWeight.w600,\r\n                // ignore: deprecated_member_use\r\n              ),\r\n            ).paddingBottom(MediaQuery.of(context).size.height * 0.2),\r\n            LoaderWidget(color: white)\r\n          ],\r\n        ),\r\n      ),\r\n    );\r\n  }\r\n}\r\n"
+        }
+    ]
+}

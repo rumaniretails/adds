@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/screens/blog/component/adds.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1746443108712,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1746443108712,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\r\nimport 'package:google_mobile_ads/google_mobile_ads.dart';\r\n\r\nclass BannerAdWidget extends StatefulWidget {\r\n  final String adUnitId;\r\n\r\n  const BannerAdWidget({\r\n    Key? key,\r\n    required this.adUnitId,\r\n  }) : super(key: key);\r\n\r\n  @override\r\n  State<BannerAdWidget> createState() => _BannerAdWidgetState();\r\n}\r\n\r\nclass _BannerAdWidgetState extends State<BannerAdWidget> {\r\n  BannerAd? _bannerAd;\r\n  bool _isAdLoaded = false;\r\n\r\n  @override\r\n  void initState() {\r\n    super.initState();\r\n    _loadBannerAd();\r\n  }\r\n\r\n  void _loadBannerAd() {\r\n    _bannerAd = BannerAd(\r\n      adUnitId: widget.adUnitId,\r\n      request: AdRequest(),\r\n      size: AdSize.banner,\r\n      listener: BannerAdListener(\r\n        onAdLoaded: (ad) => setState(() => _isAdLoaded = true),\r\n        onAdFailedToLoad: (ad, error) {\r\n          ad.dispose();\r\n          debugPrint('BannerAd failed to load: ${error.message}');\r\n        },\r\n      ),\r\n    )..load();\r\n  }\r\n\r\n  @override\r\n  void dispose() {\r\n    _bannerAd?.dispose();\r\n    super.dispose();\r\n  }\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    if (!_isAdLoaded) return const SizedBox.shrink();\r\n\r\n    return SizedBox(\r\n      width: _bannerAd!.size.width.toDouble(),\r\n      height: _bannerAd!.size.height.toDouble(),\r\n      child: AdWidget(ad: _bannerAd!),\r\n    );\r\n  }\r\n}\r\n"
+        }
+    ]
+}

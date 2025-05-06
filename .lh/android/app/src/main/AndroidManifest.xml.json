@@ -1,0 +1,18 @@
+{
+    "sourceFile": "android/app/src/main/AndroidManifest.xml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1746441543432,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1746441543432,
+            "name": "Commit-0",
+            "content": "<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n    <uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\"/>\r\n    <uses-permission android:name=\"android.permission.VIBRATE\"/>\r\n    <uses-permission android:name=\"android.permission.SCHEDULE_EXACT_ALARM\"/>\r\n    <uses-permission android:name=\"android.permission.USE_EXACT_ALARM\"/>\r\n\r\n    <application android:label=\"Templering\" android:name=\"${applicationName}\" android:usesCleartextTraffic=\"true\" android:enableOnBackInvokedCallback=\"true\" android:icon=\"@mipmap/ic_launcher\">\r\n        \r\n        \r\n        <service android:name=\"com.dexterous.flutterlocalnotifications.ForegroundService\" android:exported=\"false\" android:stopWithTask=\"false\" android:foregroundServiceType=\"mediaPlayback\"/>\r\n            \r\n\r\n        <activity android:name=\".MainActivity\" android:exported=\"true\" android:launchMode=\"singleTop\" android:theme=\"@style/LaunchTheme\" android:configChanges=\"orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode\" android:hardwareAccelerated=\"true\" android:windowSoftInputMode=\"adjustResize\">\r\n            \r\n            <meta-data android:name=\"io.flutter.embedding.android.NormalTheme\" android:resource=\"@style/NormalTheme\"/>\r\n\r\n            <!-- Intent filters for launching the app -->\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\"/>\r\n                <category android:name=\"android.intent.category.LAUNCHER\"/>\r\n            </intent-filter>\r\n        </activity>\r\n\r\n        <!-- Receivers for notifications -->\r\n        <receiver android:name=\"com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver\" android:exported=\"false\"/>\r\n\r\n        <receiver android:name=\"com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver\" android:exported=\"false\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.BOOT_COMPLETED\"/>\r\n                <action android:name=\"android.intent.action.MY_PACKAGE_REPLACED\"/>\r\n                <action android:name=\"android.intent.action.QUICKBOOT_POWERON\"/>\r\n                <action android:name=\"com.htc.intent.action.QUICKBOOT_POWERON\"/>\r\n            </intent-filter>\r\n        </receiver>\r\n\r\n        <!-- Flutter meta-data -->\r\n        <meta-data android:name=\"flutterEmbedding\" android:value=\"2\"/>\r\n        \r\n    </application>\r\n\r\n    <!-- Intent query for processing text -->\r\n    <queries>\r\n        <intent>\r\n            <action android:name=\"android.intent.action.PROCESS_TEXT\"/>\r\n            <data android:mimeType=\"text/plain\"/>\r\n        </intent>\r\n    </queries>\r\n</manifest>\r\n"
+        }
+    ]
+}
