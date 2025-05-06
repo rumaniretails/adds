@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/screens/blog/blogs_screen.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1746514926993,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1746514926993,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\r\nimport 'package:get/get.dart';\r\nimport 'package:nb_utils/nb_utils.dart';\r\nimport '../../../utils/color.dart';\r\nimport 'blog_list.dart';\r\nimport 'blogs_controller.dart';\r\nimport 'component/blog_item.dart';\r\n\r\nclass Blogs extends StatelessWidget {\r\n  final BlogController blogsController = Get.put(BlogController());\r\n\r\n  Blogs({Key? key}) : super(key: key);\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return Column(\r\n      children: [\r\n        Row(\r\n          mainAxisAlignment: MainAxisAlignment.spaceBetween,\r\n          children: [\r\n            Text(\r\n              \"Blogs\",\r\n              style: primaryTextStyle(\r\n                color: Colors.black,\r\n                size: 18,\r\n                weight: FontWeight.bold,\r\n              ),\r\n            ),\r\n            \r\n            TextButton(\r\n              onPressed: () => Get.to(\r\n                  () => BlogsviewAll(items: blogsController.items.toList())),\r\n              child: Row(\r\n                children: [\r\n                  Text(\r\n                    'View All',\r\n                    style: secondaryTextStyle(\r\n                        color: adoptifyPrimaryColor,\r\n                        size: 14,\r\n                        weight: FontWeight.bold),\r\n                  ),\r\n                  5.width,\r\n                  const Icon(Icons.arrow_right_alt,\r\n                      color: adoptifyPrimaryColor),\r\n                ],\r\n              ),\r\n            ),\r\n          ],\r\n        ).paddingOnly(left: 16),\r\n        BlogsItem().paddingSymmetric(horizontal: 16),\r\n      ],\r\n    );\r\n  }\r\n}\r\n"
+        }
+    ]
+}

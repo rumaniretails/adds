@@ -26,6 +26,7 @@ class Blogs extends StatelessWidget {
                 weight: FontWeight.bold,
               ),
             ),
+            
             TextButton(
               onPressed: () => Get.to(
                   () => BlogsviewAll(items: blogsController.items.toList())),
